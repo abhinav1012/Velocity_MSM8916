@@ -168,6 +168,7 @@ extern void devmgr_unregister_mitigation_client(
 					struct device *dev,
 					struct device_clnt_data *clnt);
 #else
+#ifndef CONFIG_FRANCO_THERMAL
 static inline int msm_thermal_init(struct msm_thermal_data *pdata)
 {
 	return -ENOSYS;
@@ -216,6 +217,7 @@ static inline void devmgr_unregister_mitigation_client(
 					struct device_clnt_data *clnt)
 {
 }
+#endif
 #endif
 
 #endif /*__MSM_THERMAL_H*/
